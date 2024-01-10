@@ -1,0 +1,27 @@
+{
+  "book": [
+    {
+      "id": "1",
+      "name": "testBook1",
+      "author": "person1",
+      "price": 120000,
+      "description": "This is test description"
+    }
+  ],
+  "user": [
+    {
+      "id": "1",
+      "fullName": "Javad dadkhah",
+      "username": "Javad",
+      "email": "hjd1831da@gmail.com",
+      "password": "javad1234"
+    }
+  ],
+  "rents": [
+    {
+      "id": "1",
+      "bookId": "1",
+      "userId": "1"
+    }
+  ]
+}
