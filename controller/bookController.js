@@ -1,12 +1,15 @@
 //? Local-module
 const model = require("./../model/Book");
 //!--------------------------------------
-const getBooks = async () => {
-    const books = await model.findAll();
-    if (books === null || books === undefined) {
-        return false;
+const getBooks = (res) => {
+    const books = model.findAll();
+    if (books) {
+        res.writeHead(200, {"Content-Type": "application/json"});
+        res.end(JSON.stringify(books));
+    } else {
+        res.writeHead(404, {"ContentType": "application/json"});
+        res.end(JSON.stringify({message: "Sorry, can not found books"}));
     }
-    return books;
 };
 const addOneBook = (req,res) => {
     let reqBody = null;

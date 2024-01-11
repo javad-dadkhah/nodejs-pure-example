@@ -4,7 +4,7 @@ const path = require("node:path");
 //? Local-module
 const db = require("./../db.json");
 //!--------------------------------
-const findAll = async () => {
+const findAll = () => {
     return db.book;
 };
 const insertOne = (reqBody) => {

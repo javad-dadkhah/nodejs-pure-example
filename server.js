@@ -6,18 +6,7 @@ const bookController = require("./controller/bookController");
 // Create server
 const server = http.createServer((req, res) => {
     if (req.url === "/books" && req.method === "GET") {
-        bookController.getBooks().then((result) => {
-            if (!result) {
-                res.writeHead(404, {"ContentType": "application/json"});
-                res.end(JSON.stringify({message: "Sorry, can not found books"}));
-            } else {
-                res.writeHead(200, {"Content-Type": "application/json"});
-                res.end(JSON.stringify(result));
-            }
-        }).catch(() => {
-            res.writeHead(404, {"ContentType": "application/json"});
-            res.end(JSON.stringify({message: "Sorry, can not found books"}));
-        });
+        bookController.getBooks(res);
     }
 
     else if (req.url === "/api/book/add" && req.method === "POST") {
