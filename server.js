@@ -19,6 +19,10 @@ const server = http.createServer((req, res) => {
             res.end(JSON.stringify({message: "Sorry, can not found books"}));
         });
     }
+
+    else if (req.url === "/api/book/add" && req.method === "POST") {
+        bookController.addOneBook(req,res);
+    }
 });
 //? Create listener callback
 //! I,m not use --Dotenv-- package in this project
