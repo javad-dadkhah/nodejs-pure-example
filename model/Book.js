@@ -35,8 +35,26 @@ const deleteOne = (id) => {
     )
     return true;
 };
+const findAndUpdateOne = (id, reqBody) => {
+    reqBody = JSON.parse(reqBody);
+    db.book.forEach(book => {
+        if (book.id === id) {
+            book.name = reqBody.name;
+            book.author = reqBody.author;
+            book.price = reqBody.price;
+            book.description = reqBody.description;
+        }
+    });
+    fs.writeFileSync(`${path.join(__dirname, "..", "db.json")}`,
+        JSON.stringify(db),
+        {
+            encoding: "utf-8", flush: true
+        });
+    return true;
+};
 module.exports = {
     findAll,
     insertOne,
     deleteOne,
-}
+    findAndUpdateOne,
+};
