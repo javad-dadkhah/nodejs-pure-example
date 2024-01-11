@@ -12,6 +12,10 @@ const server = http.createServer((req, res) => {
     else if (req.url === "/api/book/add" && req.method === "POST") {
         bookController.addOneBook(req,res);
     }
+
+    else if (req.url.startsWith("/api/book/delete") && req.method === "DELETE") {
+        bookController.deleteOneBook(req,res);
+    }
 });
 //? Create listener callback
 //! I,m not use --Dotenv-- package in this project
